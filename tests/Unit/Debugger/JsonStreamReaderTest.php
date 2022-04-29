@@ -12,10 +12,9 @@ use Getresponse\Sdk\Client\Test\FunctionMock\MockBuilder;
  */
 class JsonStreamReaderTest extends \PHPUnit\Framework\TestCase
 {
-    const DEBUG_DUMPER_NAMESPACE = 'Getresponse\Sdk\Client\Debugger';
+    final const DEBUG_DUMPER_NAMESPACE = 'Getresponse\Sdk\Client\Debugger';
     
-    /** @var JsonStreamReader */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Debugger\JsonStreamReader $systemUnderTest;
     
     protected function setUp(): void
     {

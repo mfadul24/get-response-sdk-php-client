@@ -38,7 +38,7 @@ class ExceptionFactoryTest extends \PHPUnit\Framework\TestCase
         $handlerInfo = ['foo' => 'bar'];
         $exception = ExceptionFactory::exceptionFrom($code, $request, $message, $handlerInfo, '10', $response);
 
-        static::assertEquals($expectedClass, get_class($exception));
+        static::assertEquals($expectedClass, $exception::class);
         static::assertEquals($request, $exception->getRequest());
         static::assertEquals($response, $exception->getResponse());
         static::assertEquals($handlerInfo, $exception->getHandlerInfo());

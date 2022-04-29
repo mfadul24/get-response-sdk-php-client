@@ -10,7 +10,7 @@ namespace Getresponse\Sdk\Client\Exception;
  */
 class ForbiddenException extends ClientException
 {
-    const FORBIDDEN_ERROR_MSG = 'client error: forbidden, please check Your access rights';
+    final const FORBIDDEN_ERROR_MSG = 'client error: forbidden, please check Your access rights';
 
     /**
      * @return string

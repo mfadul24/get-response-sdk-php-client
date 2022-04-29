@@ -12,15 +12,9 @@ use Getresponse\Sdk\Client\Debugger\Formatter;
  */
 class DebuggerTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var Debugger
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Debugger\Debugger $systemUnderTest;
     
-    /**
-     * @var DataCollector|\PHPUnit\Framework\MockObject\MockObject
-     */
-    private $dataCollectorMock;
+    private \Getresponse\Sdk\Client\Debugger\DataCollector|\PHPUnit\Framework\MockObject\MockObject $dataCollectorMock;
     
     protected function setUp(): void
     {

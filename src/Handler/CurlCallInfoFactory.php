@@ -10,10 +10,9 @@ use Getresponse\Sdk\Client\Handler\Call\CallInfo;
 class CurlCallInfoFactory
 {
     /**
-     * @param array | bool $curlInfo
      * @return CallInfo | null
      */
-    public static function createFromInfo($curlInfo)
+    public static function createFromInfo(array|bool $curlInfo)
     {
         if (!is_array($curlInfo)) {
             return null;

@@ -69,18 +69,14 @@ class RequestExceptionTest extends \PHPUnit\Framework\TestCase
         $builder->setNamespace('Getresponse\Sdk\Client\Exception')
                 ->setName('curl_getinfo')
                 ->setFunction(
-                    function () use($curlInfo){
-                        return $curlInfo;
-                    }
+                    fn() => $curlInfo
                 )
                 ->build();
 
         $builder->setNamespace('Getresponse\Sdk\Client\Exception')
                 ->setName('curl_error')
                 ->setFunction(
-                    function () use($curlError) {
-                        return $curlError;
-                    }
+                    fn() => $curlError
                 )
                 ->build();
 

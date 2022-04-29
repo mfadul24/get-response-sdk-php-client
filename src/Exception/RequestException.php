@@ -12,28 +12,8 @@ use Psr\Http\Message\ResponseInterface;
  */
 class RequestException extends BaseException
 {
-    const ERROR_CODE = 1;
-    const ERROR_MSG = 'general error: see response body for details';
-
-    /**
-     * @var Request
-     */
-    private $request;
-
-    /**
-     * @var Response
-     */
-    private $response;
-
-    /**
-     * @var array
-     */
-    private $handlerInfo = [];
-
-    /**
-     * @var string
-     */
-    private $clientVersion;
+    public const ERROR_CODE = 1;
+    public const ERROR_MSG = 'general error: see response body for details';
 
     /**
      * RequestException constructor.
@@ -45,16 +25,12 @@ class RequestException extends BaseException
      * @param ResponseInterface | null $response
      */
     public function __construct(
-        $message,
-        RequestInterface $request,
-        array $handlerInfo,
-        $clientVersion,
-        ResponseInterface $response = null
+        string $message,
+        private readonly RequestInterface $request,
+        private readonly array $handlerInfo,
+        private readonly string $clientVersion,
+        private readonly ?ResponseInterface $response = null
     ) {
-        $this->request = $request;
-        $this->response = $response;
-        $this->handlerInfo = $handlerInfo;
-        $this->clientVersion = $clientVersion;
         parent::__construct(
             $this->getBaseMessage($response) . $message . ', client version: ' . $clientVersion,
             self::ERROR_CODE

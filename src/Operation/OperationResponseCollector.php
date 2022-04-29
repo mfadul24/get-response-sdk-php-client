@@ -8,17 +8,14 @@ namespace Getresponse\Sdk\Client\Operation;
 class OperationResponseCollector
 {
     /** @var array | OperationResponse[] */
-    private $operations = [];
+    private array $operations = [];
     
     /** @var array | SuccessfulOperationResponse[] */
-    private $succeeded = [];
+    private array $succeeded = [];
     
     /** @var array | FailedOperationResponse[] */
-    private $failed = [];
+    private array $failed = [];
     
-    /**
-     * @param OperationResponse $operationResponse
-     */
     public function collect(OperationResponse $operationResponse)
     {
         $this->operations[] = $operationResponse;

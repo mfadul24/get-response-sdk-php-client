@@ -10,7 +10,7 @@ namespace Getresponse\Sdk\Client\Exception;
  */
 class BadRequestException extends ClientException
 {
-    const BAD_REQUEST_MESSAGE = 'Bad request, The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications. ';
+    final const BAD_REQUEST_MESSAGE = 'Bad request, The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications. ';
 
     /**
      * @return string

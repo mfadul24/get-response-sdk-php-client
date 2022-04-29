@@ -9,24 +9,12 @@ namespace Getresponse\Sdk\Client\Operation;
 class Pagination
 {
     /**
-     * @var int
-     */
-    private $page;
-
-    /**
-     * @var int
-     */
-    private $perPage;
-
-    /**
      * Pagination constructor.
      * @param int $page
      * @param int $perPage
      */
-    public function __construct($page, $perPage)
+    public function __construct(private $page, private $perPage)
     {
-        $this->page = $page;
-        $this->perPage = $perPage;
     }
 
     /**

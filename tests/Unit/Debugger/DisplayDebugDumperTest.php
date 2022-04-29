@@ -9,10 +9,7 @@ use Getresponse\Sdk\Client\Debugger\DisplayDebugDumper;
  */
 class DisplayDebugDumperTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var DisplayDebugDumper
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Debugger\DisplayDebugDumper $systemUnderTest;
     
     protected function setUp(): void
     {

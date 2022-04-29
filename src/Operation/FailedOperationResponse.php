@@ -13,14 +13,11 @@ use Psr\Http\Message\ResponseInterface;
  */
 class FailedOperationResponse implements OperationResponse
 {
-    /** @var ResponseInterface */
-    private $response;
+    private ?\Psr\Http\Message\ResponseInterface $response = null;
 
-    /** @var RequestException */
-    private $exception;
+    private ?\Getresponse\Sdk\Client\Exception\RequestException $exception = null;
     
-    /** @var RequestInterface | null */
-    private $request;
+    private ?\Psr\Http\Message\RequestInterface $request = null;
     
     /**
      * OperationResponse constructor.
@@ -30,8 +27,6 @@ class FailedOperationResponse implements OperationResponse
     }
     
     /**
-     * @param ResponseInterface $response
-     * @param RequestInterface $request
      * @return static
      */
     public static function createWithResponse(ResponseInterface $response, RequestInterface $request = null)
@@ -43,8 +38,6 @@ class FailedOperationResponse implements OperationResponse
     }
     
     /**
-     * @param RequestException $exception
-     * @param RequestInterface $request
      * @return static
      */
     public static function createWithException(RequestException $exception, RequestInterface $request = null)
@@ -56,7 +49,6 @@ class FailedOperationResponse implements OperationResponse
     }
     
     /**
-     * @param RequestInterface $request
      * @return static
      */
     public static function createAsIncomplete(RequestInterface $request = null)
@@ -100,7 +92,7 @@ class FailedOperationResponse implements OperationResponse
         }
         
         $body = $this->getData();
-        return (isset($body['message']) ? $body['message'] : 'Operation failed');
+        return ($body['message'] ?? 'Operation failed');
     }
     
     /**

@@ -12,20 +12,15 @@ use Psr\Log\LoggerInterface;
  */
 class Logger
 {
-    /** @var LoggerInterface */
-    private $logger;
-    
     /**
      * Logger constructor.
      * @param LoggerInterface $logger
      */
-    public function __construct(LoggerInterface $logger)
+    public function __construct(private readonly LoggerInterface $logger)
     {
-        $this->logger = $logger;
     }
     
     /**
-     * @param Call $call
      * @param CallInfo | null $info
      */
     public function debugCall(Call $call, CallInfo $info = null)
@@ -44,9 +39,6 @@ class Logger
         );
     }
     
-    /**
-     * @param RequestInterface $request
-     */
     public function debugRequest(RequestInterface $request)
     {
         $this->logger->debug(

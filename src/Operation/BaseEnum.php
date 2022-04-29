@@ -61,10 +61,7 @@ abstract class BaseEnum implements \JsonSerializable
         }
     }
     
-    /**
-     * @return string|array
-     */
-    public function getValue()
+    public function getValue(): string|array
     {
         return $this->value;
     }

@@ -8,14 +8,11 @@ namespace Getresponse\Sdk\Client\Operation;
  */
 abstract class SortParams
 {
-    const SORT_ASC = 'asc';
-    const SORT_DESC = 'desc';
-    private static $allowedValues = [self::SORT_ASC, self::SORT_DESC];
+    final const SORT_ASC = 'asc';
+    final const SORT_DESC = 'desc';
+    private static array $allowedValues = [self::SORT_ASC, self::SORT_DESC];
 
-    /**
-     * @var array
-     */
-    private $sortParams = [];
+    private array $sortParams = [];
 
     abstract protected function getAllowedKeys();
 

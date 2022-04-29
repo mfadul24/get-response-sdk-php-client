@@ -8,10 +8,9 @@ namespace Getresponse\Sdk\Client\Debugger;
 class LineFormatter implements Formatter
 {
     /** @var array | string[] */
-    private $lines = [];
+    private array $lines = [];
     
-    /** @var int */
-    private $indent = 0;
+    private int $indent = 0;
     
     /**
      * {@inheritdoc}
@@ -123,7 +122,7 @@ class LineFormatter implements Formatter
             $content = print_r($value, true);
         }
         $this->addKeyValueLine($key, '');
-        foreach (explode("\n", $content) as $line) {
+        foreach (explode("\n", (string) $content) as $line) {
             $this->addLine($line);
         }
     }

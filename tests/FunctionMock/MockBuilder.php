@@ -9,11 +9,9 @@ use phpmock\functions\FunctionProvider;
  */
 class MockBuilder
 {
-    /** @var string */
-    private $namespace;
+    private ?string $namespace = null;
     
-    /** @var string */
-    private $name;
+    private ?string $name = null;
     
     /** @var callable */
     private $function;
@@ -39,7 +37,6 @@ class MockBuilder
     }
     
     /**
-     * @param callable $function
      * @return $this
      */
     public function setFunction(callable $function)
@@ -49,7 +46,6 @@ class MockBuilder
     }
     
     /**
-     * @param FunctionProvider $provider
      * @return MockBuilder
      */
     public function setFunctionProvider(FunctionProvider $provider)

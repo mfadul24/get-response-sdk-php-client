@@ -7,32 +7,20 @@ namespace Getresponse\Sdk\Client\Operation;
  */
 class OperationResponseCollection implements \IteratorAggregate
 {
-    /** @var array | OperationResponse[] */
-    private $operations = [];
-    
-    /** @var array | SuccessfulOperationResponse[] */
-    private $succeeded = [];
-    
-    /** @var array | FailedOperationResponse[] */
-    private $failed = [];
-    
     /**
      * OperationResponseCollection constructor.
      * @param array|OperationResponse[] $operations
      * @param array|SuccessfulOperationResponse[] $succeeded
      * @param array|FailedOperationResponse[] $failed
      */
-    public function __construct(array $operations, array $succeeded, array $failed)
+    public function __construct(private readonly array $operations, private readonly array $succeeded, private readonly array $failed)
     {
-        $this->operations = $operations;
-        $this->succeeded = $succeeded;
-        $this->failed = $failed;
     }
     
     /**
      * @return \ArrayIterator |  OperationResponse[]
      */
-    public function getIterator()
+    public function getIterator(): \ArrayIterator|array
     {
         return new \ArrayIterator($this->operations);
     }

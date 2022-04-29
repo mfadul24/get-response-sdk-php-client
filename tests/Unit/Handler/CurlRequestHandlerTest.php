@@ -21,13 +21,10 @@ use Psr\Log\LoggerInterface;
  */
 class CurlRequestHandlerTest extends \PHPUnit\Framework\TestCase
 {
-    const HANDLER_NAMESPACE = 'Getresponse\Sdk\Client\Handler';
+    final const HANDLER_NAMESPACE = 'Getresponse\Sdk\Client\Handler';
     use \Prophecy\PhpUnit\ProphecyTrait;
     
-    /**
-     * @var CurlRequestHandler
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Handler\CurlRequestHandler $systemUnderTest;
 
     protected function setUp():void
     {
@@ -79,7 +76,7 @@ class CurlRequestHandlerTest extends \PHPUnit\Framework\TestCase
                 'origin' => '178.16.117.241',
                 'url' => 'https://httpbin.org/post'
             ],
-            json_decode($response->getBody(), true)
+            json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR)
         );
     }
 
@@ -126,7 +123,7 @@ class CurlRequestHandlerTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function shouldThrowConnectExceptionOnCurlError()
+    public function shouldThrowConnectExceptionOnCurlError(): never
     {
         $this->expectException(\Getresponse\Sdk\Client\Exception\ConnectException::class);
         $request = new Request('GET', 'http://example.com', ['X-Test' => 'test-value']);
@@ -142,7 +139,7 @@ class CurlRequestHandlerTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      */
-    public function shouldThrowConnectExceptionOnParseMessageException()
+    public function shouldThrowConnectExceptionOnParseMessageException(): never
     {
         $this->expectException(\Getresponse\Sdk\Client\Exception\ConnectException::class);
         $request = new Request('GET', 'http://example.com');
@@ -193,7 +190,7 @@ class CurlRequestHandlerTest extends \PHPUnit\Framework\TestCase
                     'origin' => '178.16.117.241',
                     'url' => 'https://httpbin.org/post'
                 ],
-                json_decode($response->getBody(), true)
+                json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR)
             );
         }
     }

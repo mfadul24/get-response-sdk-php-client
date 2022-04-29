@@ -8,9 +8,9 @@ namespace Getresponse\Sdk\Client\Operation;
  */
 interface Operation extends OperationVersionable
 {
-    const GET = 'GET';
-    const POST = 'POST';
-    const DELETE = 'DELETE';
+    public const GET = 'GET';
+    public const POST = 'POST';
+    public const DELETE = 'DELETE';
 
     /**
      * @return string

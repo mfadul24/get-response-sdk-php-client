@@ -11,25 +11,13 @@ use Getresponse\Sdk\Client\Operation\QueryOperation;
  */
 class QueryOperationImplementation extends QueryOperation
 {
-    /**
-     * @var SearchQueryImplementation
-     */
-    private $query;
+    private ?\Getresponse\Sdk\Client\Test\Unit\Operation\SearchQueryImplementation $query = null;
 
-    /**
-     * @var SortParamsImplementation
-     */
-    private $sort;
+    private ?\Getresponse\Sdk\Client\Test\Unit\Operation\SortParamsImplementation $sort = null;
 
-    /**
-     * @var Pagination
-     */
-    private $pagination;
+    private ?\Getresponse\Sdk\Client\Operation\Pagination $pagination = null;
 
-    /**
-     * @var ValueListImplementation
-     */
-    private $fields;
+    private ?\Getresponse\Sdk\Client\Test\Unit\Operation\ValueListImplementation $fields = null;
 
     /**
      * @return string
@@ -54,33 +42,21 @@ class QueryOperationImplementation extends QueryOperation
         return '/some-url/123' . $queryString;
     }
 
-    /**
-     * @param SearchQueryImplementation $query
-     */
     public function setQuery(SearchQueryImplementation $query)
     {
         $this->query = $query;
     }
 
-    /**
-     * @param SortParamsImplementation $sort
-     */
     public function setSort(SortParamsImplementation $sort)
     {
         $this->sort = $sort;
     }
 
-    /**
-     * @param Pagination $pagination
-     */
     public function setPagination(Pagination $pagination)
     {
         $this->pagination = $pagination;
     }
 
-    /**
-     * @param ValueListImplementation $fields
-     */
     public function setFields(ValueListImplementation $fields)
     {
         $this->fields = $fields;

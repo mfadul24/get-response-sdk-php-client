@@ -13,10 +13,7 @@ use phpmock\functions\FixedValueFunction;
  */
 class CommandOperationTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var CommandOperation | CommandOperationImplementation
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Operation\CommandOperation|\Getresponse\Sdk\Client\Test\Unit\Operation\CommandOperationImplementation $systemUnderTest;
 
     protected function setUp():void
     {

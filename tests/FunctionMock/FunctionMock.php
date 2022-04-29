@@ -13,7 +13,6 @@ interface FunctionMock
     public function getNameWithNamespace();
     
     /**
-     * @param callable $callback
      * @return $this
      */
     public function overwriteCallback(callable $callback);

@@ -15,15 +15,9 @@ use Psr\Log\LogLevel;
  */
 class DebugLoggerTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var DebugLogger
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Debugger\DebugLogger $systemUnderTest;
     
-    /**
-     * @var DataCollector|\PHPUnit\Framework\MockObject\MockObject
-     */
-    private $dataCollectorMock;
+    private \Getresponse\Sdk\Client\Debugger\DataCollector|\PHPUnit\Framework\MockObject\MockObject $dataCollectorMock;
     
     protected function setUp(): void
     {

@@ -11,14 +11,11 @@ use Psr\Http\Message\ResponseInterface;
  */
 class DataCollector
 {
-    /** @var StreamReader */
-    private $streamReader;
+    private readonly \Getresponse\Sdk\Client\Debugger\StreamReader $streamReader;
     
-    /** @var array */
-    private $calls = [];
+    private array $calls = [];
     
-    /** @var array */
-    private $metrics = [
+    private array $metrics = [
         'calls' => 0,
         'operations' => [],
         'error_count' => 0,
@@ -37,9 +34,6 @@ class DataCollector
         $this->streamReader = $streamReader;
     }
     
-    /**
-     * @param RequestInterface $request
-     */
     public function collectRequest(RequestInterface $request)
     {
         $this->metrics['calls']++;
@@ -53,7 +47,6 @@ class DataCollector
     }
     
     /**
-     * @param ResponseInterface $response
      * @param RequestInterface | null $request
      * @param CallInfo | null $info
      */
@@ -103,7 +96,6 @@ class DataCollector
     }
     
     /**
-     * @param RequestInterface $request
      * @return array
      */
     private function formatRequest(RequestInterface $request)
@@ -137,7 +129,6 @@ class DataCollector
     }
     
     /**
-     * @param ResponseInterface $response
      * @return array
      */
     private function formatResponse(ResponseInterface $response)

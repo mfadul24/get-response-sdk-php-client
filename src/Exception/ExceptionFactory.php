@@ -11,20 +11,15 @@ use Psr\Http\Message\ResponseInterface;
 class ExceptionFactory
 {
     /**
-     * @param int $httpStatusCode
-     * @param RequestInterface $request
      * @param $message
-     * @param array $handlerInfo
-     * @param string $clientVersion
-     * @param ResponseInterface $response
      * @return RequestException
      */
     public static function exceptionFrom(
-        $httpStatusCode,
+        int $httpStatusCode,
         RequestInterface $request,
-        $message,
+        string $message,
         array $handlerInfo,
-        $clientVersion,
+        string $clientVersion,
         ResponseInterface $response = null
     ) {
         if ($httpStatusCode === ConnectException::CODE) {

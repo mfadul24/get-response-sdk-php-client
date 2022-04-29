@@ -11,7 +11,7 @@ use Getresponse\Sdk\Client\Test\FunctionMock\MockBuilder;
  */
 class FileDebugDumperTest extends \PHPUnit\Framework\TestCase
 {
-    const DEBUG_DUMPER_NAMESPACE = 'Getresponse\Sdk\Client\Debugger';
+    final const DEBUG_DUMPER_NAMESPACE = 'Getresponse\Sdk\Client\Debugger';
     
     /**
      * @inheritDoc

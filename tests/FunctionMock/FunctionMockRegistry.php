@@ -8,11 +8,8 @@ namespace Getresponse\Sdk\Client\Test\FunctionMock;
 class FunctionMockRegistry
 {
     /** @var array | FunctionMock[] */
-    private static $registry = [];
+    private static array $registry = [];
     
-    /**
-     * @param FunctionMock $functionMock
-     */
     public static function register(FunctionMock $functionMock)
     {
         self::$registry[$functionMock->getNameWithNamespace()] = $functionMock;

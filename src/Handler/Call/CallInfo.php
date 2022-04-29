@@ -7,20 +7,15 @@ namespace Getresponse\Sdk\Client\Handler\Call;
  */
 class CallInfo
 {
-    /** @var int */
-    private $requestSize;
+    private ?int $requestSize = null;
     
-    /** @var float */
-    private $connectTime;
+    private ?float $connectTime = null;
     
-    /** @var float */
-    private $totalTime;
+    private ?float $totalTime = null;
     
-    /** @var int */
-    private $sizeDownload;
+    private ?int $sizeDownload = null;
     
-    /** @var int */
-    private $speedDownload;
+    private ?int $speedDownload = null;
     
     /**
      * @return int

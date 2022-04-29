@@ -16,7 +16,6 @@ abstract class CommandOperation implements Operation
     protected $data = [];
 
     /**
-     * @param array $payload
      * @return string
      * @throws InvalidCommandDataException
      */
@@ -39,7 +38,7 @@ abstract class CommandOperation implements Operation
     public function set($key, $value)
     {
         if (!in_array($key, $this->getAllowedFields(), true)) {
-            throw InvalidCommandDataException::createFromInvalidField($key, get_called_class());
+            throw InvalidCommandDataException::createFromInvalidField($key, static::class);
         }
         $this->data[$key] = $value;
 
@@ -48,8 +47,6 @@ abstract class CommandOperation implements Operation
     
     
     /**
-     * @param UrlQuery $urlQuery
-     * @param array $extra
      * @return string
      */
     protected function buildUrlQuery(UrlQuery $urlQuery = null, array $extra = [])

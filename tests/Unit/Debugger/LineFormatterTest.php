@@ -14,8 +14,7 @@ use GuzzleHttp\Psr7\Uri;
  */
 class LineFormatterTest extends \PHPUnit\Framework\TestCase
 {
-    /** @var LineFormatter */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Debugger\LineFormatter $systemUnderTest;
     
     protected function setUp(): void
     {
@@ -221,6 +220,7 @@ EOT
      */
     public function shouldFormatCalls()
     {
+        $requests = [];
         $requests[0] = new Request(
             'POST',
             new Uri('https://api.getresponse.com/v3/contacts'),

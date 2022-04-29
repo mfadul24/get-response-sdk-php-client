@@ -26,20 +26,11 @@ use Psr\Http\Message\RequestInterface;
 class GetresponseClientTest extends \PHPUnit\Framework\TestCase
 {
     use \Prophecy\PhpUnit\ProphecyTrait;
-    /**
-     * @var GetresponseClient
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\GetresponseClient $systemUnderTest;
 
-    /**
-     * @var RequestHandler | ObjectProphecy
-     */
-    private $requestHandlerMock;
+    private \Getresponse\Sdk\Client\Handler\RequestHandler|\Prophecy\Prophecy\ObjectProphecy $requestHandlerMock;
     
-    /**
-     * @var QueryOperationImplementation
-     */
-    private $operation;
+    private \Getresponse\Sdk\Client\Test\Unit\Operation\QueryOperationImplementation $operation;
 
     protected function setUp():void
     {
@@ -163,6 +154,7 @@ class GetresponseClientTest extends \PHPUnit\Framework\TestCase
      */
     public function shouldSendAsyncRequests()
     {
+        $responses = [];
         $operations
             = $requestHandlerSendAsserts
             = [];

@@ -9,7 +9,6 @@ namespace Getresponse\Sdk\Client\Exception;
 class InvalidCommandDataException extends BaseException
 {
     /**
-     * @param array $data
      * @return InvalidCommandDataException
      */
     public static function createFromJsonLastErrorMsg(array $data)
@@ -35,7 +34,6 @@ class InvalidCommandDataException extends BaseException
     }
 
     /**
-     * @param array $missingFields
      * @param string $commandName
      * @return InvalidCommandDataException
      */

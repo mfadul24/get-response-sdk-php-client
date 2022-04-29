@@ -10,7 +10,7 @@ namespace Getresponse\Sdk\Client\Exception;
  */
 class UnauthorizedException extends ClientException
 {
-    const CLIENT_ERROR_UNAUTHORIZED_MSG = 'client error: unauthorized, please check Your authorization headers, make sure that account is active and has api access enabled';
+    final const CLIENT_ERROR_UNAUTHORIZED_MSG = 'client error: unauthorized, please check Your authorization headers, make sure that account is active and has api access enabled';
 
     /**
      * @return string

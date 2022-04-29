@@ -19,13 +19,10 @@ use Psr\Log\NullLogger;
  */
 class CurlRequestHandler implements RequestHandler
 {
-    const METHOD_POST = 'POST';
-    const METHOD_DELETE = 'DELETE';
+    public const METHOD_POST = 'POST';
+    public const METHOD_DELETE = 'DELETE';
 
-    /**
-     * @var Logger
-     */
-    private $logger;
+    private \Getresponse\Sdk\Client\Debugger\Logger $logger;
     
     /**
      * CurlRequestHandler constructor.

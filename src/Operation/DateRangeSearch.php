@@ -9,24 +9,12 @@ namespace Getresponse\Sdk\Client\Operation;
 class DateRangeSearch
 {
     /**
-     * @var string
-     */
-    private $from;
-
-    /**
-     * @var string
-     */
-    private $to;
-
-    /**
      * DateRangeSearch constructor.
      * @param string | null $from
      * @param string | null $to
      */
-    public function __construct($from = null, $to = null)
+    public function __construct(private $from = null, private $to = null)
     {
-        $this->from = $from;
-        $this->to = $to;
     }
 
     /**

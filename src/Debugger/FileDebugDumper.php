@@ -9,8 +9,7 @@ use InvalidArgumentException;
  */
 class FileDebugDumper implements DebugDumper
 {
-    /** @var string */
-    private $filename;
+    private readonly string $filename;
     
     /**
      * FileDebugDumper constructor.
@@ -20,7 +19,7 @@ class FileDebugDumper implements DebugDumper
     public function __construct($filename)
     {
         $dir = pathinfo($filename, PATHINFO_DIRNAME);
-        if (!is_dir($dir) || ('.' === $dir && 0 !== strpos($filename, '.'))) {
+        if (!is_dir($dir) || ('.' === $dir && !str_starts_with($filename, '.'))) {
             throw new InvalidArgumentException('Invalid filename');
         }
         $this->filename = $filename;

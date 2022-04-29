@@ -17,12 +17,9 @@ use phpmock\functions\FixedValueFunction;
  */
 class CurlMultiRequestHandlerTest extends \PHPUnit\Framework\TestCase
 {
-    const HANDLER_NAMESPACE = 'Getresponse\Sdk\Client\Handler';
+    final const HANDLER_NAMESPACE = 'Getresponse\Sdk\Client\Handler';
 
-    /**
-     * @var CurlMultiRequestHandler
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Handler\CurlMultiRequestHandler $systemUnderTest;
 
     protected function setUp():void
     {
@@ -105,7 +102,7 @@ class CurlMultiRequestHandlerTest extends \PHPUnit\Framework\TestCase
                     'origin' => '178.16.117.241',
                     'url' => 'https://httpbin.org/post'
                 ],
-                json_decode($response->getBody(), true)
+                json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR)
             );
         }
     }

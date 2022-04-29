@@ -10,10 +10,7 @@ use Getresponse\Sdk\Client\Operation\SortParams;
  */
 class SortParamsTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var SortParams
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Operation\SortParams $systemUnderTest;
 
     protected function setUp(): void
     {

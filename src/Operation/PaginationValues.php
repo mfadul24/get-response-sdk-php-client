@@ -9,29 +9,26 @@ namespace Getresponse\Sdk\Client\Operation;
 class PaginationValues
 {
     /**
-     * @var int
-     */
-    private $page;
-    /**
-     * @var int
-     */
-    private $totalPages;
-    /**
-     * @var int
-     */
-    private $totalCount;
-
-    /**
      * PaginationValues constructor.
      * @param $page
      * @param $totalPages
      * @param $totalCount
      */
-    public function __construct($page, $totalPages, $totalCount)
+    public function __construct(
+        /**
+         * @var int
+         */
+        private $page,
+        /**
+         * @var int
+         */
+        private $totalPages,
+        /**
+         * @var int
+         */
+        private $totalCount
+    )
     {
-        $this->page = $page;
-        $this->totalPages = $totalPages;
-        $this->totalCount = $totalCount;
     }
 
     /**

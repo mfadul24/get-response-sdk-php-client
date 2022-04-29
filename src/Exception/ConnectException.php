@@ -9,8 +9,8 @@ namespace Getresponse\Sdk\Client\Exception;
  */
 class ConnectException extends RequestException
 {
-    const CODE = 0;
-    const CONNECTION_ERROR_MSG = 'connection error: please check Your connectivity';
+    final const CODE = 0;
+    final const CONNECTION_ERROR_MSG = 'connection error: please check Your connectivity';
 
     /**
      * @return string

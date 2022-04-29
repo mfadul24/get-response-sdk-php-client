@@ -8,7 +8,7 @@ namespace Getresponse\Sdk\Client\Operation;
  */
 abstract class UrlQuery
 {
-    private $urlQuery = [];
+    private array $urlQuery = [];
 
     /**
      * @return array

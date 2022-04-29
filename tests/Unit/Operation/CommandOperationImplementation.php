@@ -12,15 +12,9 @@ use Getresponse\Sdk\Client\Operation\Operation;
  */
 class CommandOperationImplementation extends CommandOperation
 {
-    /**
-     * @var UrlQueryParametersImplementation | null
-     */
-    private $urlParameterQuery;
+    private ?\Getresponse\Sdk\Client\Test\Unit\Operation\UrlQueryParametersImplementation $urlParameterQuery = null;
     
-    /**
-     * @var AdditionalFlagsImplementation | null
-     */
-    private $additionalFlags;
+    private ?\Getresponse\Sdk\Client\Test\Unit\Operation\AdditionalFlagsImplementation $additionalFlags = null;
     
     /**
      * @return array
@@ -39,7 +33,6 @@ class CommandOperationImplementation extends CommandOperation
     }
     
     /**
-     * @param UrlQueryParametersImplementation $urlParameterQuery
      * @return $this
      */
     public function setUrlParameterQuery(UrlQueryParametersImplementation $urlParameterQuery)
@@ -49,7 +42,6 @@ class CommandOperationImplementation extends CommandOperation
     }
     
     /**
-     * @param AdditionalFlagsImplementation $additionalFlags
      * @return $this
      */
     public function setAdditionalFlags(AdditionalFlagsImplementation $additionalFlags)

@@ -15,10 +15,9 @@ use Getresponse\Sdk\Client\Version;
  */
 class CurlMultiRequestHandler extends CurlRequestHandler
 {
-    const MAX_CALLS_LIMIT = 80;
+    final const MAX_CALLS_LIMIT = 80;
     
     /**
-     * @param CallRegistry $callRegistry
      * @throws CallLimitOutOfBoundsException
      */
     public function sendMany(CallRegistry $callRegistry)

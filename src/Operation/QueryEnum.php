@@ -7,23 +7,12 @@ namespace Getresponse\Sdk\Client\Operation;
  */
 class QueryEnum
 {
-    const TYPE_STRING = 'string';
-    const TYPE_ARRAY = 'array';
+    final const TYPE_STRING = 'string';
+    final const TYPE_ARRAY = 'array';
     
-    /**
-     * @var string|array|null
-     */
-    private $value;
+    private readonly string|array|null $value;
     
-    /** 
-     * @var string 
-     */
-    private $type;
-    
-    /**
-     * @var string[]
-     */
-    private $allowedValues = [];
+    private readonly string $type;
     
     /**
      * QueryEnum constructor.
@@ -31,7 +20,7 @@ class QueryEnum
      * @param string[] $allowedValues
      * @param string|array $value
      */
-    public function __construct($type, array $allowedValues, $value)
+    public function __construct($type, private readonly array $allowedValues, $value)
     {
         $allowedTypes = [self::TYPE_ARRAY, self::TYPE_STRING, true];
         if (!in_array($type, $allowedTypes, true)) {
@@ -40,7 +29,6 @@ class QueryEnum
             );
         }
         $this->type = $type;
-        $this->allowedValues = $allowedValues;
     
         if ($this->isMultiple()) {
             $value = (array) $value;
@@ -79,10 +67,7 @@ class QueryEnum
         return self::TYPE_ARRAY === $this->type;
     }
     
-    /**
-     * @return string|array
-     */
-    public function getValue()
+    public function getValue(): string|array
     {
         return $this->value;
     }

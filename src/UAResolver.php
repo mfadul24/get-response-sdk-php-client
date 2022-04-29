@@ -11,8 +11,6 @@ use Getresponse\Sdk\Client\Operation\OperationVersionable;
 class UAResolver
 {
     /**
-     * @param RequestHandler $handler
-     * @param OperationVersionable $operation
      * @return string
      */
     public static function resolve(RequestHandler $handler, OperationVersionable $operation)
@@ -27,12 +25,11 @@ class UAResolver
     }
     
     /**
-     * @param RequestHandler $handler
      * @return string
      */
     private static function getHandlerName(RequestHandler $handler)
     {
-        $parts = explode('\\', get_class($handler));
+        $parts = explode('\\', $handler::class);
         return end($parts);
     }
 }

@@ -8,7 +8,7 @@ namespace Getresponse\Sdk\Client\Operation;
  */
 abstract class SearchQuery
 {
-    private $searchQuery = [];
+    private array $searchQuery = [];
 
     /**
      * @return array

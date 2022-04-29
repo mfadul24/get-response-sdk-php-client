@@ -12,20 +12,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 class SuccessfulOperationResponse implements OperationResponse
 {
-    /**
-     * @var ResponseInterface
-     */
-    private $response;
-
-    /**
-     * @var int
-     */
-    private $successCode;
-    
-    /**
-     * @var RequestInterface | null
-     */
-    private $request;
+    private readonly int $successCode;
 
     /**
      * OperationResponse constructor.
@@ -33,11 +20,9 @@ class SuccessfulOperationResponse implements OperationResponse
      * @param int $successCode
      * @param RequestInterface $request
      */
-    public function __construct(ResponseInterface $response, $successCode, RequestInterface $request = null)
+    public function __construct(private readonly ResponseInterface $response, $successCode, private readonly ?\Psr\Http\Message\RequestInterface $request = null)
     {
-        $this->response = $response;
         $this->successCode = (int) $successCode;
-        $this->request = $request;
     }
 
     /**

@@ -12,20 +12,11 @@ use Psr\Http\Message\ResponseInterface;
  */
 class Call
 {
-    /** @var string */
-    private $id;
+    private readonly string $id;
     
-    /** @var int */
-    private $successCode;
+    private ?\Psr\Http\Message\ResponseInterface $response = null;
     
-    /** @var RequestInterface */
-    private $request;
-    
-    /** @var ResponseInterface | null */
-    private $response;
-    
-    /** @var RequestException | null */
-    private $exception;
+    private ?\Getresponse\Sdk\Client\Exception\RequestException $exception = null;
     
     /**
      * Call constructor.
@@ -33,11 +24,9 @@ class Call
      * @param int $successCode
      * @param string | null $id
      */
-    public function __construct(RequestInterface $request, $successCode, $id = null)
+    public function __construct(private readonly RequestInterface $request, private $successCode, $id = null)
     {
-        $this->request = $request;
-        $this->successCode = $successCode;
-        $this->id = null !== $id ? $id : uniqid();
+        $this->id = $id ?? uniqid();
     }
     
     /**
@@ -64,9 +53,6 @@ class Call
         return $this->request;
     }
     
-    /**
-     * @param ResponseInterface $response
-     */
     public function setResponse(ResponseInterface $response)
     {
         if ($this->hasException()) {
@@ -86,9 +72,6 @@ class Call
         return $this->response;
     }
     
-    /**
-     * @param RequestException $exception
-     */
     public function setException(RequestException $exception)
     {
         if (null !== $this->response) {

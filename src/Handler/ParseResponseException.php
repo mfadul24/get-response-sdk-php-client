@@ -10,7 +10,6 @@ use Getresponse\Sdk\Client\Exception\BaseException;
 class ParseResponseException extends BaseException
 {
     /**
-     * @param \Exception $previousException
      * @return static
      */
     public static function create(\Exception $previousException)

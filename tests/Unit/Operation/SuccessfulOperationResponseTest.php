@@ -16,15 +16,9 @@ use Psr\Http\Message\ResponseInterface;
  */
 class SuccessfulOperationResponseTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var ResponseInterface
-     */
-    private $response;
+    private \Psr\Http\Message\ResponseInterface $response;
 
-    /**
-     * @var OperationResponse
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Operation\OperationResponse $systemUnderTest;
 
     protected function setUp(): void
     {

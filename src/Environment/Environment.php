@@ -16,7 +16,6 @@ interface Environment
     public function getUrl();
 
     /**
-     * @param RequestInterface $request
      * @return RequestInterface
      */
     public function processRequest(RequestInterface $request);

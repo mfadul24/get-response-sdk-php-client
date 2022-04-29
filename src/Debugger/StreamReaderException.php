@@ -9,8 +9,8 @@ use Getresponse\Sdk\Client\Exception\BaseException;
  */
 class StreamReaderException extends BaseException
 {
-    const EXECUTION_ERROR_CODE = 10;
-    const UNREADABLE_BODY_ERROR_CODE = 100;
+    final const EXECUTION_ERROR_CODE = 10;
+    final const UNREADABLE_BODY_ERROR_CODE = 100;
     
     /**
      * @param string $message

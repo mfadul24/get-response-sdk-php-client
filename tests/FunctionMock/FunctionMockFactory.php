@@ -54,7 +54,6 @@ class FunctionMockFactory
     /**
      * @param string $namespace
      * @param string $name
-     * @param ParameterBuilder $parameterBuilder
      * @return string
      */
     private static function createDefaultCallbackDefinition($namespace, $name, ParameterBuilder $parameterBuilder)

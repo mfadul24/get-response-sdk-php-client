@@ -7,7 +7,7 @@ namespace Getresponse\Sdk\Client\Operation;
  */
 class BaseModel implements \JsonSerializable
 {
-    const FIELD_NOT_SET = 'field_not_set';
+    final const FIELD_NOT_SET = 'field_not_set';
 
     /**
      * @return array
@@ -18,7 +18,6 @@ class BaseModel implements \JsonSerializable
     }
 
     /**
-     * @param array $data
      * @return array
      */
     protected function filterUnsetFields(array $data)

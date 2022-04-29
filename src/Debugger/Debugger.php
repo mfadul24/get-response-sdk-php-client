@@ -7,22 +7,14 @@ namespace Getresponse\Sdk\Client\Debugger;
  */
 class Debugger
 {
-    /** @var DataCollector */
-    private $dataCollector;
-    
     /**
      * Debugger constructor.
      * @param DataCollector $dataCollector
      */
-    public function __construct(DataCollector $dataCollector)
+    public function __construct(private readonly DataCollector $dataCollector)
     {
-        $this->dataCollector = $dataCollector;
     }
     
-    /**
-     * @param Formatter $formatter
-     * @param DebugDumper $debugDumper
-     */
     public function debug(Formatter $formatter, DebugDumper $debugDumper)
     {
         $data = $this->dataCollector->getData();

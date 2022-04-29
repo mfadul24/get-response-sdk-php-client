@@ -10,10 +10,7 @@ use Getresponse\Sdk\Client\Operation\SearchQuery;
  */
 class SearchQueryTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var SearchQuery
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Operation\SearchQuery $systemUnderTest;
 
     protected function setUp(): void
     {

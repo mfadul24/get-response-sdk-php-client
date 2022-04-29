@@ -10,10 +10,7 @@ use Getresponse\Sdk\Client\Operation\Pagination;
  */
 class QueryOperationTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var QueryOperationImplementation
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Test\Unit\Operation\QueryOperationImplementation $systemUnderTest;
 
     protected function setUp():void
     {

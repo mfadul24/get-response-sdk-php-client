@@ -11,7 +11,6 @@ use Psr\Http\Message\RequestInterface;
 interface AuthenticationProvider
 {
     /**
-     * @param RequestInterface $request
      * @return RequestInterface
      */
     public function authenticate(RequestInterface $request);

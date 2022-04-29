@@ -20,25 +20,7 @@ use GuzzleHttp\Psr7\Request;
  */
 class GetresponseClient
 {
-    /**
-     * @var RequestHandler
-     */
-    private $requestHandler;
-
-    /**
-     * @var Logger
-     */
-    private $logger;
-
-    /**
-     * @var Environment
-     */
-    private $environment;
-
-    /**
-     * @var AuthenticationProvider
-     */
-    private $authentication;
+    private ?\Getresponse\Sdk\Client\Debugger\Logger $logger = null;
 
     /**
      * GetresponseClient constructor.
@@ -46,19 +28,10 @@ class GetresponseClient
      * @param Environment $environment
      * @param AuthenticationProvider $authentication
      */
-    public function __construct(
-        RequestHandler $requestHandler,
-        Environment $environment,
-        AuthenticationProvider $authentication
-    ) {
-        $this->requestHandler = $requestHandler;
-        $this->environment = $environment;
-        $this->authentication = $authentication;
+    public function __construct(private readonly RequestHandler $requestHandler, private readonly Environment $environment, private readonly AuthenticationProvider $authentication)
+    {
     }
 
-    /**
-     * @param Logger $logger
-     */
     public function setLogger(Logger $logger)
     {
         $this->logger = $logger;
@@ -66,7 +39,6 @@ class GetresponseClient
     }
 
     /**
-     * @param Operation $operation
      * @return OperationResponse
      */
     public function call(Operation $operation)
@@ -88,7 +60,7 @@ class GetresponseClient
      * @param Operation[] $operations
      * @return OperationResponseCollection | OperationResponse[]
      */
-    public function callMany(array $operations)
+    public function callMany(array $operations): \Getresponse\Sdk\Client\Operation\OperationResponseCollection|array
     {
         $callRegistry = new CallRegistry();
         foreach ($operations as $operation) {
@@ -116,7 +88,6 @@ class GetresponseClient
     }
 
     /**
-     * @param Operation $operation
      * @return Request
      */
     private function createRequest(Operation $operation)

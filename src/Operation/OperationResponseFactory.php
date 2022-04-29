@@ -10,7 +10,6 @@ use Getresponse\Sdk\Client\Handler\Call\Call;
 class OperationResponseFactory
 {
     /**
-     * @param Call $call
      * @return OperationResponse
      */
     public static function createByCall(Call $call)

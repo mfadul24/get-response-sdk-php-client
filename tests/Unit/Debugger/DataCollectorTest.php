@@ -13,10 +13,7 @@ use GuzzleHttp\Psr7\Uri;
  */
 class DataCollectorTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @var DataCollector
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Debugger\DataCollector $systemUnderTest;
     
     protected function setUp(): void
     {
@@ -308,6 +305,7 @@ class DataCollectorTest extends \PHPUnit\Framework\TestCase
      */
     public function shouldCollectMultipleRequestsData()
     {
+        $requests = [];
         $requestHeaders = ['x-auth-token' => 'api-key 77777777777'];
         $requestBody = '{"name":"new contact","email":"some.name@domain.com"}';
         
@@ -332,8 +330,8 @@ class DataCollectorTest extends \PHPUnit\Framework\TestCase
     
         $data = $this->systemUnderTest->getData();
         $this->assertMainData($data);
-        static::assertEquals(count($requests), count($data['metrics']['operations']));
-        static::assertEquals(count($requests), count($data['calls']));
+        static::assertEquals(count($requests), is_countable($data['metrics']['operations']) ? count($data['metrics']['operations']) : 0);
+        static::assertEquals(count($requests), is_countable($data['calls']) ? count($data['calls']) : 0);
         
         $index = 0;
         foreach ($data['calls'] as $call) {
@@ -346,9 +344,6 @@ class DataCollectorTest extends \PHPUnit\Framework\TestCase
         }
     }
     
-    /**
-     * @param array $data
-     */
     private function assertMainData(array $data)
     {
         static::assertArrayHasKey('date', $data);
@@ -367,9 +362,6 @@ class DataCollectorTest extends \PHPUnit\Framework\TestCase
         static::assertArrayHasKey('calls', $data);
     }
     
-    /**
-     * @param array $call
-     */
     private function assertCallMetrics(array $call)
     {
         static::assertArrayHasKey('metrics', $call);
@@ -382,9 +374,6 @@ class DataCollectorTest extends \PHPUnit\Framework\TestCase
     }
     
     /**
-     * @param array $call
-     * @param Request $request
-     * @param array $requestHeaders
      * @param string $requestBody
      */
     private function assertRequest(array $call, Request $request, array $requestHeaders, $requestBody)
@@ -403,7 +392,7 @@ class DataCollectorTest extends \PHPUnit\Framework\TestCase
         static::assertEquals($request->getProtocolVersion(), $call['request']['protocolVersion']);
         static::assertEquals($requestHeaders['x-auth-token'], $call['request']['headers']['x-auth-token']);
         if ('' !== $requestBody) {
-            static::assertEquals(json_decode($requestBody, true), $call['request']['body']);
+            static::assertEquals(json_decode($requestBody, true, 512, JSON_THROW_ON_ERROR), $call['request']['body']);
         } else {
             static::assertEmpty($call['request']['body']);
         }

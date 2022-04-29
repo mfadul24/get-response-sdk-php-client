@@ -12,21 +12,18 @@ class RateLimit
 {
     /**
      * Total number of requests available per time frame (typically 600 seconds)
-     * @var int
      */
-    private $limit;
+    private readonly int $limit;
 
     /**
      * Number of requests left in the current time frame
-     * @var int
      */
-    private $remaining;
+    private readonly int $remaining;
 
     /**
      * Seconds left in the current time frame
-     * @var int
      */
-    private $reset;
+    private readonly int $reset;
 
     /**
      * RateLimit constructor.
@@ -71,7 +68,6 @@ class RateLimit
     /**
      * Given the request timestamp, the method will calculate when the rate limit time frame resets
      *
-     * @param \DateTimeImmutable $requestDateTime
      * @return \DateTimeImmutable
      * @throws InvalidRateLimitData
      */
@@ -79,7 +75,7 @@ class RateLimit
     {
         try {
             $interval = new \DateInterval('PT' . $this->reset . 'S');
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             throw new InvalidRateLimitData('RateLimit-Reset invalid: ' . $this->reset);
         }
 

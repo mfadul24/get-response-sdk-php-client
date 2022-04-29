@@ -10,16 +10,12 @@ use Psr\Http\Message\RequestInterface;
  */
 class CallRegistry implements \IteratorAggregate, \Countable
 {
-    /**
-     * @var array
-     */
-    private static $requestRegistry = [];
+    private static array $requestRegistry = [];
     
     /** @var array | Call */
     protected $calls = [];
     
     /**
-     * @param RequestInterface $request
      * @param int $successCode
      */
     public function registerRequest(RequestInterface $request, $successCode)
@@ -32,7 +28,6 @@ class CallRegistry implements \IteratorAggregate, \Countable
     
     /**
      * @param string $identifier
-     * @param Call $call
      */
     public function registerCall($identifier, Call $call)
     {
@@ -42,7 +37,7 @@ class CallRegistry implements \IteratorAggregate, \Countable
     /**
      * @return \ArrayIterator | Call[]
      */
-    public function getIterator()
+    public function getIterator(): \ArrayIterator|array
     {
         return new \ArrayIterator($this->calls);
     }

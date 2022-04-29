@@ -10,12 +10,12 @@ class ParameterBuilder
     /**
      * @var string The signature's parameters.
      */
-    private $signatureParameters;
+    private ?string $signatureParameters = null;
 
     /**
      * @var string The body's parameter access list.
      */
-    private $bodyParameters;
+    private ?string $bodyParameters = null;
 
     /**
      * Builds the parameters for an existing function.
@@ -48,7 +48,6 @@ class ParameterBuilder
     }
     
     /**
-     * @param \ReflectionParameter $reflectionParameter
      * @param $parameter
      * @return string
      */

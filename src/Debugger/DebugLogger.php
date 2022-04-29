@@ -14,17 +14,11 @@ class DebugLogger implements LoggerInterface
     use LoggerTrait;
     
     /**
-     * @var DataCollector
-     */
-    private $dataCollector;
-    
-    /**
      * DebugLogger constructor.
      * @param DataCollector $dataCollector
      */
-    public function __construct(DataCollector $dataCollector)
+    public function __construct(private readonly DataCollector $dataCollector)
     {
-        $this->dataCollector = $dataCollector;
     }
     
     /**
@@ -37,8 +31,8 @@ class DebugLogger implements LoggerInterface
                 $this->dataCollector->collectRequest($context['request']);
             }
             if (isset($context['response'])) {
-                $request = isset($context['request']) ? $context['request'] : null;
-                $info = isset($context['info']) ? $context['info'] : null;
+                $request = $context['request'] ?? null;
+                $info = $context['info'] ?? null;
                 $this->dataCollector->collectResponse($context['response'], $request, $info);
             }
         }

@@ -14,8 +14,7 @@ use Getresponse\Sdk\Client\Operation\SuccessfulOperationResponse;
 class OperationResponseCollectionTest extends \PHPUnit\Framework\TestCase
 {
     use \Prophecy\PhpUnit\ProphecyTrait;
-    /** @var OperationResponseCollection */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Operation\OperationResponseCollection $systemUnderTest;
     
     /**
      * @inheritDoc

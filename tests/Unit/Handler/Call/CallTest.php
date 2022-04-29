@@ -15,10 +15,7 @@ use Psr\Http\Message\RequestInterface;
 class CallTest extends \PHPUnit\Framework\TestCase
 {
     use \Prophecy\PhpUnit\ProphecyTrait;
-    /**
-     * @var Call
-     */
-    private $systemUnderTest;
+    private \Getresponse\Sdk\Client\Handler\Call\Call $systemUnderTest;
     
     protected function setUp():void
     {

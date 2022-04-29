@@ -11,7 +11,6 @@ abstract class QueryOperation implements Operation
     /**
      * @param SearchQuery | null $query
      * @param SortParams | null $sort
-     * @param array $extra
      * @return string
      */
     protected function buildQueryString(SearchQuery $query = null, SortParams $sort = null, array $extra = null)
